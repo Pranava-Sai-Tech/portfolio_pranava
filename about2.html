@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Pranavasai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll; /* Allow the body to scroll */
+            display: flex;
+            height: 120vh; /* Set body height to create scrolling space */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+           
+        }
+        
+        #about {    
+            text-align: center;
+            padding:20px;
+            
+        }
+        #about h1 {
+            font-size: 6em; /* Increase the size of h1 text */
+        }
+        #about p {
+            font-size: 1.5em; /* Increase the size of p text */
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="about">
+        <h1>About Pranavasai</h1>
+        <h1>  </h1>
+        <p>scroll down then up to open my Page</p>
+    </div>
+
+    <script>
+        // Check for scroll position
+        window.onscroll = function() {
+            // If user scrolls up to the top of the page
+            if (document.documentElement.scrollTop === 0) {
+                window.location.href = "index.html"; // Change this to your actual main page
+            }
+        };
+    </script>
+</body>
+</html>
