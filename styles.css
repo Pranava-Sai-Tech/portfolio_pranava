@@ -3,13 +3,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-<<<<<<< HEAD
-}
-.video-background {
-    position: relative;
-    width: 100%;
-    height: -25vh; /* Set to 1/4th (25%) of the viewport height */ 
-=======
     padding-top: 50px; 
 }
 .list{
@@ -38,22 +31,15 @@ body {
     width: 100%;
     
     
->>>>>>> 9f61123 (hi)
 }
 video {
     min-width: 100%;
     min-height: 100%;
     width: auto;
-<<<<<<< HEAD
-    height: auto;
-=======
->>>>>>> 9f61123 (hi)
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);  
-<<<<<<< HEAD
-=======
     object-fit: cover; 
     z-index: -1; 
     height: 150vh;
@@ -89,7 +75,6 @@ video {
     margin: 0 ;
     background-color: rgba(37, 35, 35, 0.155);  /* Light background for the box */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
->>>>>>> 9f61123 (hi)
 }
 .navbar {
     height: 80vh; /* Set to 1/4th (25%) of the viewport height */
@@ -98,30 +83,6 @@ video {
     align-items: center;
     justify-content: center;
     text-align: center;
-<<<<<<< HEAD
-    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background for better visibility */
-    position: relative;
-}
-list{
-    height: 100vh; 
-    display: flex;
-    justify-content: center;
-    background-color: rgba(215, 36, 36, 0); /* Semi-transparent background for better visibility */
-    margin: 0; /* Remove margins */
-    padding: 0; /* Remove padding */
-}
-.content{
-    padding:10px;
-    dispaly:flex;
-    margin: 0;
-}
-.content2{
-    width: 100%;
-    padding: 10px;
-    margin: 0 ;
-    background-color: rgba(249, 249, 249, 0); /* Light background for the box */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-=======
     background-color:rgba(37, 35, 35, 0.155);  /* Semi-transparent background for better visibility */
     position:fi;
 }
@@ -132,49 +93,27 @@ list{
 #changingText {
     color: rgb(214, 236, 17); /* Set text color to blue */
     font-size: 4em;
->>>>>>> 9f61123 (hi)
 }
 .sml{
     width: 100%;
     padding: 10px;
     margin: 0 ;
-<<<<<<< HEAD
-    background-color: rgba(249, 249, 249, 0); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-=======
     background-color: rgba(37, 35, 35, 0.155); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
->>>>>>> 9f61123 (hi)
 }
 .Edu{
     width: 100%;
     padding: 10px;
     margin: 0 ;
-<<<<<<< HEAD
-    background-color: rgba(247, 240, 240, 0); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.image img {
-    width: 35%;
-    height: auto;
-    margin: 20px ; 
-    padding: 10px;
-=======
     background-color: rgba(37, 35, 35, 0.155); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
->>>>>>> 9f61123 (hi)
 }
 .ski{
     width: 100%;
     padding: 10px;
     margin: 0 ;
-<<<<<<< HEAD
-    background-color: rgba(249, 249, 249, 0); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-=======
     background-color: rgba(37, 35, 35, 0.155); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
->>>>>>> 9f61123 (hi)
 }
 .skills-box {
     display: flex;
@@ -183,20 +122,6 @@ list{
     margin: 20px 0;
 
 }
-<<<<<<< HEAD
-
-.skills-item {
-    display: flex;
-    align-items: center;
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 40px);
-    box-sizing: border-box;
-}
-
-=======
 .skills-item {
     display: flex;
     align-items: center;
@@ -207,30 +132,17 @@ list{
     width: calc(50% - 40px);
     box-sizing: border-box;
 }
->>>>>>> 9f61123 (hi)
 .skills-image {
     width: 100px; /* Decreased width */
     height: auto;
     margin-right: 20px;
 }
-<<<<<<< HEAD
-
-.skills-text {
-    flex: 1;
-}
-
-.skills-text h4 {
-    margin: 0 0 10px 0;
-}
-
-=======
 .skills-text {
     flex: 1;
 }
 .skills-text h4 {
     margin: 0 0 10px 0;
 }
->>>>>>> 9f61123 (hi)
 .skills-text p {
     margin: 0;
 }
@@ -239,41 +151,18 @@ list{
     justify-content: center;
     margin: 20px 0;
 }
-<<<<<<< HEAD
-@media (max-width: 768px) {
-    .skills-item {
-        width: calc(50% - 20px); /* 2 items per row on medium screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .skills-item {
-        width: calc(100% - 20px); /* 1 item per row on small screens */
-    }
-}
-=======
->>>>>>> 9f61123 (hi)
 .con{
     width: 100%;
     padding: 10px;
     margin: 0 ;
-<<<<<<< HEAD
-    background-color: rgba(249, 249, 249, 0); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-=======
     background-color: rgba(37, 35, 35, 0.155); 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
->>>>>>> 9f61123 (hi)
 }
 .social-button img {
     width: 50px;
     height: 50px;
     margin: 0 10px;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9f61123 (hi)
 h1, h2, h3, h4 {
     margin: 10px 0;
 }
@@ -295,8 +184,6 @@ ul li {
     margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
-=======
 @media (max-width: 768px) {
     .skills-item {
         width: calc(50% - 20px); /* 2 items per row on medium screens */
@@ -307,4 +194,3 @@ ul li {
         width: calc(100% - 20px); /* 1 item per row on small screens */
     }
 }
->>>>>>> 9f61123 (hi)
