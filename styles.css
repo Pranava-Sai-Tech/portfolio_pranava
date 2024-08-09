@@ -183,14 +183,3 @@ ul {
 ul li {
     margin-bottom: 10px;
 }
-
-@media (max-width: 768px) {
-    .skills-item {
-        width: calc(50% - 20px); /* 2 items per row on medium screens */
-    }
-}
-@media (max-width: 480px) {
-    .skills-item {
-        width: calc(100% - 20px); /* 1 item per row on small screens */
-    }
-}
