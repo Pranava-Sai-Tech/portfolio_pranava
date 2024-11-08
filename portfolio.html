@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="website icon" type="image/jpeg" href="images/me photo 1.jpg">
+    <title>Website By Pranava sai</title>
+    <script>
+        let texts = ["Hello, World!", "Welcome to my website!", "Enjoy your stay!", "Have a great day!"];
+        let index = 0;
+
+        function changeText() {
+            document.getElementById("changingText").innerText = texts[index];
+            index = (index + 1) % texts.length; // Loop back to the start
+        }
+
+        setInterval(changeText, 1000); // Change text every 1 second
+    </script>
+</head>
+<body>
+    <script>
+        let currentBoxIndex = 0;
+        function nextBox() {
+            const boxes = document.querySelectorAll('.container');
+            boxes[currentBoxIndex].style.display = 'none'; // Hide current box
+            currentBoxIndex = (currentBoxIndex + 1) % boxes.length; // Go to the next box
+            boxes[currentBoxIndex].style.display = 'flex'; // Show the next box
+        }
+
+    </script>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#home" class="active" onclick="showSection('home')">Home</a>
+            <a href="#myimages" onclick="showSection('myimages')">Images</a>
+            <a href="#About" onclick="showSection('About')">About</a>
+            <a href="#Education" onclick="showSection('Education')">Education</a>
+        </div>
+        <div class="navbar-right">
+            <a href="#Socialmedialinks" onclick="showSection('Socialmedialinks')">Social Media Links</a>
+            <a href="#Skills" onclick="showSection('Skills')">Skills</a>
+            <a href="#ContactInformation" onclick="showSection('ContactInformation')">Contact Information</a>
+        </div>
+    </nav>    
+    <div id="home"></div>
+    <header>
+        <div class="content">
+            <h1 id="changingText">Hello, World!</h1>
+            <h2>Pranava Sai</h2>
+            <p>I am a dedicated and passionate 4th-year Bachelor’s student</p>
+        </div>
+        <div class="intro"> 
+            <a href="intro.html">
+                <button>Start Page</button>
+            </a>   
+        </div>  
+    </header>   
+    <div class="myimage" id="myimages">
+        <img src="images/me photo 1.jpg" alt="first img"width="500" height="100" >
+        <img src="images/me photo 2.jpg" alt="second img" width="500" height="100">
+        <img src="images/me photo 3.jpg" alt="second img" width="500" height="100">
+        <img src="images/me photo 4.jpg" alt="second img" width="500" height="100">
+        <img src="images/me photo 5.jpg" alt="second img" width="500" height="100">
+        <img src="images/me photo 6.jpg"  alt="second img" width="500" height="100">
+        <img src="images/me photo 7.jpg" alt="second img" width="500" height="100">
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="box-front">
+                <div class="holes">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="content" id="About">   
+                    <h1>About me</h1><br><br>
+                    <div class="next-page">Next Page →</div>
+                </div>    
+            </div>
+            <div class="box-back">
+                <p>I am a dedicated and passionate 4th-year Bachelor’s student majoring in Computer Science at Aits University.<br><br>
+                    Throughout my academic journey, I have developed a strong foundation in All Aspects and have actively<br><br>
+                    engaged in various projects and internships that have honed my practical skills.<br><br>
+                    My academic coursework has been complemented by hands-on experience in many specific areas<br><br>
+                    I am particularly interested in  machine learning,machines,Ai,web devolopment ,and I am <br><br>
+                    keen on applying my knowledge to real-world challenges.</p>
+            </div>
+        </div>    
+
+        <div class="box" >
+            <div class="box-front">
+                <div class="holes">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="content" id="Education">
+                        <h1>Education Details</h1><br>
+                        <div class="next-page">Next Page →</div>  
+                </div>
+            </div>    
+            <div class="box-back">
+                <div class="edu">
+                    <h1>Sri Shiridi Sai Jr College(School)</h1>
+                    <h4>High School Education</h4>
+                    <h4>Rajampet,Annamayya dt</h4>
+                </div>
+                <div class="edu">
+                    <h1>Sri Shiridi Sai Jr College(Intermediate)</h1>
+                    <h4>MPC</h4>
+                    <h4>Rajampet,Annamayya dt</h4>
+                </div>
+                <div class="edu">
+                    <h1>Annamacharya University(B.Tech)</h1>
+                    <h4>Computer Science Department</h4>
+                    <h4>Rajampeta,Annamayya dt</h4>             
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="links" id="Socialmedialinks">
+        <div class="social-button">
+            <h1>My Social Media Links</h1>
+            <div class="social-link">
+                <a href="https://www.linkedin.com/in/pranava-sai/" target="_blank">
+                    <img src="images/linkedin-logo.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Pranava-Sai-Tech" target="_blank">
+                    <img src="images/GitHub-logo.png" alt="Github">
+                </a>
+                <a href="https://wa.me/message/YEDP3XCRTWIUB1" target="_blank">
+                    <img src="images/whatsapp.png" alt="whatsapp">
+                </a>
+                <a href="https://youtube.com/@mylifeas_sai?si=AwssSRYFpQzvMem7" target="_blank">
+                    <img src="images/youtube-logo.jpg"alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/mylifeas_sai?igsh=MjBkZHl0dm10eGR3" target="_blank">
+                    <img src="images/insta.png" alt="Insta">
+                </a>
+            </div>
+        </div>
+    </div>    
+    
+    <div class="ski" id="Skills">
+        <h1 id="head">Skills</h1>
+        <div class="skills-box">
+            <div class="skills-item">
+                <img src="images/cybercrime.png"Skill Image" class="skills-image">
+                <div class="skills-text">
+                    <h4>Introduction to Cybercrime</h4>
+                    <p>Cybercrime encompasses illegal activities executed via digital platforms, such as hacking, identity theft, and online fraud.</p>
+                </div>
+            </div>
+            <div class="skills-item">
+                <img src="images/sqlinjection.jpg"Skill Image" class="skills-image">
+                <div class="skills-text">
+                    <h4>SQL Injection For Beginners</h4>
+                    <p>SQL Injection is a code injection technique used to exploit vulnerabilities in an application's software by manipulating SQL queries.</p>
+                </div>
+            </div>
+            <div class="skills-item">
+                <img src="images/cybersecurity.jpg"Skill Image" class="skills-image">
+                <div class="skills-text">
+                    <h4>ChatGPT for Cybersecurity</h4>
+                    <p>ChatGPT can be utilized in cybersecurity for various purposes, including threat detection, incident response, user education, and automated report generation.</p>
+                </div>
+            </div>    
+            <div class="skills-item">
+                <img src="images/vapt.jpg"Skill Image" class="skills-image">
+                <div class="skills-text">
+                    <h4>Vulnerability Assesment and Penetration Testing</h4>
+                    <p>Vulnerability Assessment and Penetration Testing (VAPT) involves identifying, evaluating, and exploiting security weaknesses in systems to improve their defenses.</p>
+                </div>
+            </div>
+            <div class="skills-item">
+                <img src="images/vapt.jpg"Skill Image" class="skills-image">
+                <div class="skills-text">
+                    <h4>Vulnerability Assesment and Penetration Testing</h4>
+                    <p>Vulnerability Assessment and Penetration Testing (VAPT) involves identifying, evaluating, and exploiting security weaknesses in systems to improve their defenses.</p>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <div class="contact" id="ContactInformation">
+        <h1>Contact Information</h1>
+        <h2>Email: kalagatlapranavasai@gmail.com</h2>
+        <h3>Phone: 8897595016</h3>
+    </div>
+</body>
+</html>
