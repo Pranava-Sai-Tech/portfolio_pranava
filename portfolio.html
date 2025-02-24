@@ -4,116 +4,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="portfolio.css">
-    <link rel="website icon" type="image/jpeg" href="images/me photo 1.jpg">
-    <title>Website By Pranava sai</title>
-    <script>
-        let texts = ["Hello, World!", "Welcome to my website!", "Enjoy your stay!", "Have a great day!"];
-        let index = 0;
+    <link rel="stylesheet" href="contact.html">
+    <link rel="website icon" type="image/jpeg" href="images/favicon website.png">
+    <title>Portfolio Pranavasai</title>
 
+<!--page id`s-->
+<script>
+    function showSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Get navbar height
+    if (section) {
+        const sectionPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight - 10; // Adjust offset
+        window.scrollTo({ top: sectionPosition, behavior: 'smooth' });
+    }
+}
+</script>
+<!--changign text-->    
+    <script>
+        let texts = ["Welcome to my Portfolio!"," I am Pranava Sai", "A passionate ","Computer Science Engineer"];
+        let index = 0;
         function changeText() {
             document.getElementById("changingText").innerText = texts[index];
             index = (index + 1) % texts.length; // Loop back to the start
         }
-
         setInterval(changeText, 1000); // Change text every 1 second
     </script>
 </head>
 <body>
+<!--sliding imag-->
     <script>
-        let currentBoxIndex = 0;
-        function nextBox() {
-            const boxes = document.querySelectorAll('.container');
-            boxes[currentBoxIndex].style.display = 'none'; // Hide current box
-            currentBoxIndex = (currentBoxIndex + 1) % boxes.length; // Go to the next box
-            boxes[currentBoxIndex].style.display = 'flex'; // Show the next box
+        document.addEventListener("DOMContentLoaded", function () {
+        let currentIndex = 0;
+        const slider = document.querySelector(".slider"); // Correct selector
+        const slides = document.querySelectorAll(".slide");
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
+        // Move Right (Next Image)
+        document.querySelector(".right").addEventListener("click", function () {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to first image
+            }
+            updateSlider();
+        });
+
+        // Move Left (Previous Image)
+        document.querySelector(".left").addEventListener("click", function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1; // Loop to last image
+            }
+            updateSlider();
+        });
+
+        // Auto-slide every 3 seconds
+        setInterval(moveRight, 3000);
+
+        function moveRight() {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateSlider();
+        }
+
+        function moveLeft() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1;
+            }
+            updateSlider();
+        }
+    });
+
     </script>
+<!--progress circles-->    
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+            function setProgress(circle, text, percent) {
+                let circumference = 314; // Full stroke circumference (assuming r=50)
+                let offset = circumference - (circumference * percent) / 100;
+                circle.style.strokeDashoffset = offset;
+                text.textContent = percent + "%";
+            }
+
+            let progressValues = [60, 65, 50, 70, 85, 45]; // Target values
+
+            function updateProgress() {
+                document.querySelectorAll(".circular-progress").forEach((progressDiv, index) => {
+                    let circle = progressDiv.querySelector(".progress");
+                    let text = progressDiv.querySelector(".progress-text");
+                    let targetPercent = progressValues[index];
+
+                    let progress = 0; // Reset progress to 0
+                    setProgress(circle, text, 0); // Immediately reset to 0
+
+                    setTimeout(() => { // Wait a bit before animating again
+                        let interval = setInterval(() => {
+                            if (progress >= targetPercent) {
+                                clearInterval(interval);
+                            } else {
+                                progress++;
+                                setProgress(circle, text, progress);
+                            }
+                        }, 20); // Animation speed
+                    }, 500); // Delay before animation restart
+                });
+            }
+
+            // Run the progress animation once on page load
+            updateProgress();
+
+            // Repeat the animation every 10 seconds
+            setInterval(updateProgress, 10000);
+        });
+
+    </script>
+<!--contact form-->    
+    <script>
+        function redirectToForm() {
+            window.open("contact.html", "_blank"); // Redirects to the new form page
+        }
+    </script>
+
+<!--dark mode toggle --> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Check if dark mode was previously enabled in local storage
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            toggleButton.textContent = "☀️ Light Mode";
+        }
+
+        toggleButton.addEventListener("click", function () {
+            body.classList.toggle("dark-mode");
+
+            // Save mode preference in local storage
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                toggleButton.textContent = "☀️ Light Mode";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                toggleButton.textContent = "🌙 Dark Mode";
+            }
+        });
+    });
+
+    </script>
+
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="#home" class="active" onclick="showSection('home')">Home</a>
-            <a href="#myimages" onclick="showSection('myimages')">Images</a>
-            <a href="#About" onclick="showSection('About')">About</a>
-            <a href="#Education" onclick="showSection('Education')">Education</a>
+            <a href="javascript:void(0);" class="active" onclick="showSection('home')">Home</a>
+            <a href="javascript:void(0);" onclick="showSection('images')">Images</a>
+            <a href="javascript:void(0);" onclick="showSection('About')">About</a>
+            <a href="javascript:void(0);" onclick="showSection('Socialmedialinks')">Social Media Links</a>
+            <a href="javascript:void(0);" onclick="showSection('internships')">Internships</a>
         </div>
         <div class="navbar-right">
-            <a href="#Socialmedialinks" onclick="showSection('Socialmedialinks')">Social Media Links</a>
-            <a href="#Skills" onclick="showSection('Skills')">Skills</a>
-            <a href="#ContactInformation" onclick="showSection('ContactInformation')">Contact Information</a>
+            <a href="javascript:void(0);" onclick="showSection('progress')">Progress</a>
+            <a href="javascript:void(0);" onclick="showSection('projects')">Projects</a>
+            <a href="javascript:void(0);" onclick="showSection('certificates')">Certificates</a>
+            <a href="javascript:void(0);" onclick="showSection('ContactInformation')">Contact Information</a>
+            <a href="contact.html#getintouch" target="_blank">Get in Touch</a>
         </div>
     </nav>    
-    <div id="home"></div>
+
     <header>
-        <div class="content">
-            <h1 id="changingText">Hello, World!</h1>
+        <div class="content" id="home">
+            <h1 id="changingText">Welcome to my Portfolio!</h1><br>
             <h2>Pranava Sai</h2>
-            <p>I am a dedicated and passionate 4th-year Bachelor’s student</p>
+            <p> "Innovating Technology, Securing the Future"</p>
         </div>
         <div class="intro"> 
             <a href="index.html">
-                <button>Start Page</button>
-            </a>   
+                <button>Page</button>
+            </a>  
         </div>  
+        <div class="darkmode">
+            <button id="darkModeToggle">🌙 Dark Mode</button> 
+        </div>
     </header>   
-    <div class="myimage" id="myimages">
-        <img src="images/me photo 1.jpg" alt="first img"width="500" height="100" >
-        <img src="images/me photo 2.jpg" alt="second img" width="500" height="100">
-        <img src="images/me photo 3.jpg" alt="second img" width="500" height="100">
-        <img src="images/me photo 4.jpg" alt="second img" width="500" height="100">
-        <img src="images/me photo 5.jpg" alt="second img" width="500" height="100">
-        <img src="images/me photo 6.jpg"  alt="second img" width="500" height="100">
-        <img src="images/me photo 7.jpg" alt="second img" width="500" height="100">
+    
+    <div class="slider-container" id="images">
+        <button class="arrow left" onclick="moveLeft()">&#9665;</button>
+        <div class="slider-wrapper">
+            <div class="slider" id="images">
+                <div class="slide"><img src="images/me photo 1.jpg" alt="first img"></div>
+                <div class="slide"><img src="images/me photo 2.jpg" alt="second img"></div>
+                <div class="slide"><img src="images/me photo 3.jpg" alt="third img"></div>
+                <div class="slide"><img src="images/me photo 4.jpg" alt="fourth img"></div>
+                <div class="slide"><img src="images/me photo 5.jpg" alt="fifth img"></div>
+                <div class="slide"><img src="images/me photo 6.jpg" alt="sixth img"></div>
+                <div class="slide"><img src="images/me photo 7.jpg" alt="seventh img"></div>
+            </div>
+        </div>
+        <button class="arrow right" onclick="moveRight()">&#9655;</button>
     </div>
-    <div class="container">
-        <div class="box">
-            <div class="box-front">
-                <div class="holes">
-                    <span></span><span></span><span></span>
-                </div>
-                <div class="content" id="About">   
-                    <h1>About me</h1><br><br>
-                    <div class="next-page">Next Page →</div>
-                </div>    
-            </div>
-            <div class="box-back">
-                <p>I am a dedicated and passionate 4th-year Bachelor’s student majoring in Computer Science at Aits University.<br><br>
-                    Throughout my academic journey, I have developed a strong foundation in All Aspects and have actively<br><br>
-                    engaged in various projects and internships that have honed my practical skills.<br><br>
-                    My academic coursework has been complemented by hands-on experience in many specific areas<br><br>
-                    I am particularly interested in  machine learning,machines,Ai,web devolopment ,and I am <br><br>
-                    keen on applying my knowledge to real-world challenges.</p>
-            </div>
-        </div>    
 
-        <div class="box" >
-            <div class="box-front">
-                <div class="holes">
-                    <span></span><span></span><span></span>
-                </div>
-                <div class="content" id="Education">
-                        <h1>Education Details</h1><br>
-                        <div class="next-page">Next Page →</div>  
-                </div>
-            </div>    
-            <div class="box-back">
+    <div class="container" id="About">
+        <div class="box">
+            <div class="content">
+                <h1>About Me</h1><br><br><br><br>
+                <p>
+                    I am a dedicated and passionate Computer Science graduate from AITS University.<br><br>
+                    Throughout my academic journey, I have built a strong foundation in various aspects
+                    of technology and actively engaged in projects and internships that have enhanced my practical skills.<br><br>
+                    My coursework and hands-on experience have equipped me with expertise in Machine Learning,
+                    Artificial Intelligence, and Web Development.<br><br>
+                    I am eager to apply my knowledge to real-world
+                    challenges and contribute effectively to innovative projects.
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="content">
+                <h1>Education Details</h1><br>
                 <div class="edu">
-                    <h1>Sri Shiridi Sai Jr College(School)</h1>
-                    <h4>High School Education</h4>
-                    <h4>Rajampet,Annamayya dt</h4>
+                    <h2>Sri Shiridi Sai Jr College (School)</h2>
+                    <p>High School Education</p>
+                    <p>Rajampet, Annamayya dt</p>
                 </div>
                 <div class="edu">
-                    <h1>Sri Shiridi Sai Jr College(Intermediate)</h1>
-                    <h4>MPC</h4>
-                    <h4>Rajampet,Annamayya dt</h4>
+                    <h2>Sri Shiridi Sai Jr College (Intermediate)</h2>
+                    <p>MPC</p>
+                    <p>Rajampet, Annamayya dt</p>
                 </div>
                 <div class="edu">
-                    <h1>Annamacharya University(B.Tech)</h1>
-                    <h4>Computer Science Department</h4>
-                    <h4>Rajampeta,Annamayya dt</h4>             
+                    <h2>Annamacharya University (B.Tech)</h2>
+                    <p>Computer Science</p>
+                    <p>Rajampeta, Annamayya dt</p>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
+
     <div class="links" id="Socialmedialinks">
         <div class="social-button">
             <h1>My Social Media Links</h1>
@@ -135,52 +271,280 @@
                 </a>
             </div>
         </div>
-    </div>    
-    
-    <div class="ski" id="Skills">
-        <h1 id="head">Skills</h1>
+    </div>   
+
+    <div class="ski" id="internships">
+        <h1 id="head">Internships </h1>
         <div class="skills-box">
             <div class="skills-item">
                 <img src="images/cybercrime.png"Skill Image" class="skills-image">
-                <div class="skills-text">
+                <div class="skills-text"><br><br>
                     <h4>Introduction to Cybercrime</h4>
-                    <p>Cybercrime encompasses illegal activities executed via digital platforms, such as hacking, identity theft, and online fraud.</p>
+                    <p>Cybercrime encompasses illegal activities executed via digital platforms, such as hacking, 
+                        identity theft, and online fraud.
+                    </p>
                 </div>
             </div>
             <div class="skills-item">
                 <img src="images/sqlinjection.jpg"Skill Image" class="skills-image">
-                <div class="skills-text">
+                <div class="skills-text"><br><br><br>
                     <h4>SQL Injection For Beginners</h4>
-                    <p>SQL Injection is a code injection technique used to exploit vulnerabilities in an application's software by manipulating SQL queries.</p>
+                    <p>SQL Injection is a code injection technique used to exploit vulnerabilities in an application's 
+                        software by manipulating SQL queries.
+                    </p>
                 </div>
             </div>
             <div class="skills-item">
-                <img src="images/cybersecurity.jpg"Skill Image" class="skills-image">
-                <div class="skills-text">
-                    <h4>ChatGPT for Cybersecurity</h4>
-                    <p>ChatGPT can be utilized in cybersecurity for various purposes, including threat detection, incident response, user education, and automated report generation.</p>
+                <img src="images/powerbi.jpg"Skill Image" class="skills-image">
+                <div class="skills-text"><br><br><br>
+                    <h4>Data Analytics Power Bi</h4>
+                    <p>Proficient in Data Analytics using Power BI, with hands-on experience in data visualization, 
+                        reporting, and business intelligence insights.
+                    </p>
                 </div>
             </div>    
             <div class="skills-item">
-                <img src="images/vapt.jpg"Skill Image" class="skills-image">
-                <div class="skills-text">
-                    <h4>Vulnerability Assesment and Penetration Testing</h4>
-                    <p>Vulnerability Assessment and Penetration Testing (VAPT) involves identifying, evaluating, and exploiting security weaknesses in systems to improve their defenses.</p>
+                <img src="images/brightix.png"Skill Image" class="skills-image">
+                <div class="skills-text"><br>
+                    <h4>BrightiX Cyber Security</h4>
+                    <p>This involves identifying, evaluating, 
+                        and exploiting security weaknesses in systems to improve their defenses.
+                    </p>
                 </div>
             </div>
             <div class="skills-item">
-                <img src="images/vapt.jpg"Skill Image" class="skills-image">
+                <img src="images/red users.png"Skill Image" class="skills-image">
                 <div class="skills-text">
-                    <h4>Vulnerability Assesment and Penetration Testing</h4>
-                    <p>Vulnerability Assessment and Penetration Testing (VAPT) involves identifying, evaluating, and exploiting security weaknesses in systems to improve their defenses.</p>
+                    <h4>Red Users Cyber Security</h4>
+                    <p>cybersecurity internship at The Red Users, gaining hands-on 
+                        experience in network security and vulnerability assessment.".
+                    </p>
                 </div>
             </div>
         </div>
     </div>   
+
+    <div class="skills-wrapper" id="progress">
+        <h1 id="skills-heading">Skills Progress</h1>
+        <div class="skills-container">
+            <!-- c -->
+            <div class="skill">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" stroke="#2196F3" stroke-width="10" fill="none" 
+                                stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                        <text class="progress-text" x="60" y="60">60%</text>
+                    </svg>
+                </div>
+                <div class="skill-name">C Programming</div>
+            </div>
+            <!-- Python -->
+            <div class="skill">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" stroke="#2196F3" stroke-width="10" fill="none" 
+                                stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                        <text class="progress-text" x="60" y="60">65%</text>
+                    </svg>
+                </div>
+                <div class="skill-name">Python</div>
+            </div>
+
+            <!-- Java -->
+            <div class="skill">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" stroke="#2196F3" stroke-width="10" fill="none" 
+                                stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                        <text class="progress-text" x="60" y="60">50%</text>
+                    </svg>
+                </div>
+                <div class="skill-name">Java</div>
+            </div>
+
+            <!-- SQL -->
+            <div class="skill">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" stroke="#2196F3" stroke-width="10" fill="none" 
+                                stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                        <text class="progress-text" x="60" y="60">70%</text>
+                    </svg>
+                </div>
+                <div class="skill-name">SQL</div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="skill">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" stroke="#2196F3" stroke-width="10" fill="none" 
+                                stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                        <text class="progress-text" x="60" y="60">85%</text>
+                    </svg>
+                </div>
+                <div class="skill-name">Web Development</div>
+            </div>
+            <!-- Cyber Security Tools -->
+            <div class="skill">
+                <div class="circular-progress">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"></circle>
+                        <circle class="progress" cx="60" cy="60" r="50" stroke="#2196F3" stroke-width="10" fill="none" 
+                                stroke-dasharray="314" stroke-dashoffset="314"></circle>
+                        <text class="progress-text" x="60" y="60">45%</text>
+                    </svg>
+                </div>
+                <div class="skill-name">Cyber Security Tools</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="projects" id="projects">
+        <h1>My Projects</h1>
+        <div class="project-card">
+            <div class="project-title">Portfolio Website</div>
+            <div class="project-desc">Created a personal portfolio showcasing skills, certifications, and projects.</div>
+            <div class="project-tech">Technologies: HTML, CSS, JavaScript</div>
+            <a href="#" class="project-link">View Portfolio</a>
+        </div>
+        <div class="project-card">
+            <div class="project-title">Sign Language Detection</div>
+            <div class="project-desc">Created a page where all hand signs are detected, making it easy for Deaf and Dumb people.</div>
+            <div class="project-tech">Technologies: Deep Learning, CNN, Image Processing</div>
+            <a href="#" class="project-link">View Project</a>
+        </div>
+    </div>
+
+    <div class="container-cert" id="certificates">
+        <h1 id="certificate-heading">Certificates & Achievements</h1>
+        <div class="cards-wrapper">
+            <!-- Certificate 1 -->
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/injection.jpg" alt="Certificate 1">
+                            <p>Click to see certificate</p>
+                        </div>
+                        <div class="card-back">
+                            <h2>SQl Injection</h2>
+                            <p>Issued by SimpliLearn</p>
+                            <a href="https://drive.google.com/file/d/193vbqGgpgqwCvVRUMrSIv3AdV5VL_uxk/view?usp=drive_link" target="_blank">
+                                <button>Certificate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Certificate 2 -->
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/powerbii.jpg" alt="Certificate 2">
+                            <p>Click to see certificate</p>
+                        </div>
+                        <div class="card-back">
+                            <h2>Data Analytics Power Bi</h2>
+                            <p>Issued by TechTip 24</p>
+                            <a href="https://drive.google.com/file/d/1al1TzSsvIfrD7VWq1buGD7Cy64etSo-K/view?usp=drive_link" target="_blank">
+                                <button>Certificate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- certificate 3-->
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/red users.png" alt="Certificate 3">
+                            <p>Click to see certificate</p>
+                        </div>
+                        <div class="card-back">
+                            <h2>Red Users Cyber Security</h2>
+                            <p>Issued by Red Users</p>
+                            <a href="https://drive.google.com/file/d/1UZjGr5KXkhZ62FS0_fxPdf8L-ufg1ju_/view?usp=drive_link" target="_blank">
+                                <button>Certificate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- certificate 4-->
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/excel.png" alt="Certificate 4">
+                            <p>Click to see certificate</p>
+                        </div>
+                        <div class="card-back">
+                            <h2>Bussiness Analytics With Excel</h2>
+                            <p>Issued by SimpliLearn</p>
+                            <a href="https://drive.google.com/file/d/1b_akrHcESYcQ91GkPU2gMRMYEHy9ecTV/view?usp=drive_link" target="_blank">
+                                <button>Certificate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- certificate 5-->
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/be10x.jpg" alt="Certificate 5">
+                            <p>Click to see certificate</p>
+                        </div>
+                        <div class="card-back">
+                            <h2>Be10X Ai Tools Workshop</h2>
+                            <p>Issued by Be10X</p>
+                            <a href="https://drive.google.com/file/d/1aYWExl3ql-4VYuFzkelmMVUVZ3pue7y4/view?usp=drive_link" target="_blank">
+                                <button>Certificate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- certificate 6-->
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/brightix.png" alt="Certificate 6">
+                            <p>Click to see certificate</p>
+                        </div>
+                        <div class="card-back">
+                            <h2>BrightiX Cyber Security</h2>
+                            <p>Issued by BrightiX</p>
+                            <a href="https://drive.google.com/file/d/1k1qZBCVhjFoVVvZwl_VwUAo0BTMTgaql/view?usp=drive_link" target="_blank">
+                                <button>Certificate</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="contact" id="ContactInformation">
-        <h1>Contact Information</h1>
+        <h1>Contact Information 
+            <button class="contact-btn" onclick="redirectToForm()">Get in Touch</button>
+        </h1>
         <h2>Email: kalagatlapranavasai@gmail.com</h2>
         <h3>Phone: 8897595016</h3>
     </div>
+
+
 </body>
 </html>
