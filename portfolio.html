@@ -31,61 +31,7 @@
     </script>
 </head>
 <body>
-<!--sliding imag-->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        let currentIndex = 0;
-        const slider = document.querySelector(".slider"); // Correct selector
-        const slides = document.querySelectorAll(".slide");
-        const totalSlides = slides.length;
 
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        // Move Right (Next Image)
-        document.querySelector(".right").addEventListener("click", function () {
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0; // Loop back to first image
-            }
-            updateSlider();
-        });
-
-        // Move Left (Previous Image)
-        document.querySelector(".left").addEventListener("click", function () {
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                currentIndex = totalSlides - 1; // Loop to last image
-            }
-            updateSlider();
-        });
-
-        // Auto-slide every 3 seconds
-        setInterval(moveRight, 3000);
-
-        function moveRight() {
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0;
-            }
-            updateSlider();
-        }
-
-        function moveLeft() {
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                currentIndex = totalSlides - 1;
-            }
-            updateSlider();
-        }
-    });
-
-    </script>
 <!--progress circles-->    
     <script>
        document.addEventListener("DOMContentLoaded", function () {
@@ -135,44 +81,16 @@
         }
     </script>
 
-<!--dark mode toggle --> 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        const toggleButton = document.getElementById("darkModeToggle");
-        const body = document.body;
-
-        // Check if dark mode was previously enabled in local storage
-        if (localStorage.getItem("darkMode") === "enabled") {
-            body.classList.add("dark-mode");
-            toggleButton.textContent = "☀️ Light Mode";
-        }
-
-        toggleButton.addEventListener("click", function () {
-            body.classList.toggle("dark-mode");
-
-            // Save mode preference in local storage
-            if (body.classList.contains("dark-mode")) {
-                localStorage.setItem("darkMode", "enabled");
-                toggleButton.textContent = "☀️ Light Mode";
-            } else {
-                localStorage.setItem("darkMode", "disabled");
-                toggleButton.textContent = "🌙 Dark Mode";
-            }
-        });
-    });
-
-    </script>
 
     <nav class="navbar">
         <div class="navbar-left">
             <a href="javascript:void(0);" class="active" onclick="showSection('home')">Home</a>
-            <a href="javascript:void(0);" onclick="showSection('images')">Images</a>
             <a href="javascript:void(0);" onclick="showSection('About')">About</a>
             <a href="javascript:void(0);" onclick="showSection('Socialmedialinks')">Social Media Links</a>
             <a href="javascript:void(0);" onclick="showSection('internships')">Internships</a>
         </div>
         <div class="navbar-right">
-            <a href="javascript:void(0);" onclick="showSection('progress')">Progress</a>
+            <a href="javascript:void(0);" onclick="showSection('progress')">Skills</a>
             <a href="javascript:void(0);" onclick="showSection('projects')">Projects</a>
             <a href="javascript:void(0);" onclick="showSection('certificates')">Certificates</a>
             <a href="javascript:void(0);" onclick="showSection('ContactInformation')">Contact Information</a>
@@ -191,51 +109,32 @@
                 <button>Page</button>
             </a>  
         </div>  
-        <div class="darkmode">
-            <button id="darkModeToggle">🌙 Dark Mode</button> 
-        </div>
+        
     </header>   
     
-    <div class="slider-container" id="images">
-        <button class="arrow left" onclick="moveLeft()">&#9665;</button>
-        <div class="slider-wrapper">
-            <div class="slider" id="images">
-                <div class="slide"><img src="images/me photo 1.jpg" alt="first img"></div>
-                <div class="slide"><img src="images/me photo 2.jpg" alt="second img"></div>
-                <div class="slide"><img src="images/me photo 3.jpg" alt="third img"></div>
-                <div class="slide"><img src="images/me photo 4.jpg" alt="fourth img"></div>
-                <div class="slide"><img src="images/me photo 5.jpg" alt="fifth img"></div>
-                <div class="slide"><img src="images/me photo 6.jpg" alt="sixth img"></div>
-                <div class="slide"><img src="images/me photo 7.jpg" alt="seventh img"></div>
-            </div>
-        </div>
-        <button class="arrow right" onclick="moveRight()">&#9655;</button>
-    </div>
 
     <div class="container" id="About">
         <div class="box">
             <div class="content">
                 <h1>About Me</h1><br><br><br><br>
-                <p>
-                    I am a dedicated and passionate Computer Science graduate from AITS University.<br><br>
-                    Throughout my academic journey, I have built a strong foundation in various aspects
-                    of technology and actively engaged in projects and internships that have enhanced my practical skills.<br><br>
-                    My coursework and hands-on experience have equipped me with expertise in Machine Learning,
-                    Artificial Intelligence, and Web Development.<br><br>
+                <h4>
+                    I am a dedicated Computer Science Engineering graduate with practical experience
+                    in web development, app development, and software problem-solving. I have built 
+                    multiple real-time projects using modern technologies and gained valuable 
+                    industry exposure as a Program Analyst Trainee, where I improved my technical 
+                    and analytical skills. <br><br>
+                    I enjoy creating clean, efficient solutions and continuously upgrading my knowledge to
+                    contribute effectively to innovative projects..<br><br>
                     I am eager to apply my knowledge to real-world
                     challenges and contribute effectively to innovative projects.
-                </p>
+                </h4>
             </div>
         </div>
 
         <div class="box">
             <div class="content">
                 <h1>Education Details</h1><br>
-                <div class="edu">
-                    <h2>Sri Shiridi Sai Jr College (School)</h2>
-                    <p>High School Education</p>
-                    <p>Rajampet, Annamayya dt</p>
-                </div>
+            
                 <div class="edu">
                     <h2>Sri Shiridi Sai Jr College (Intermediate)</h2>
                     <p>MPC</p>
@@ -523,23 +422,7 @@
                 </div>
             </div>
             <!-- certificate 5-->
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="images/be10x.jpg" alt="Certificate 5">
-                            <p>Click to see certificate</p>
-                        </div>
-                        <div class="card-back">
-                            <h2>Be10X Ai Tools Workshop</h2>
-                            <p>Issued by Be10X</p>
-                            <a href="https://drive.google.com/file/d/1aYWExl3ql-4VYuFzkelmMVUVZ3pue7y4/view?usp=drive_link" target="_blank">
-                                <button>Certificate</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- certificate 6-->
             <div class="card-container">
                 <div class="card">
@@ -551,7 +434,7 @@
                         <div class="card-back">
                             <h2>BrightiX Cyber Security</h2>
                             <p>Issued by BrightiX</p>
-                            <a href="https://drive.google.com/file/d/1k1qZBCVhjFoVVvZwl_VwUAo0BTMTgaql/view?usp=drive_link" target="_blank">
+                            <a href="https://drive.google.com/file/d/1k-feGRJaBZgxT2kx1bf7_s1A4hFNvWOz/view?usp=drivesdk" target="_blank">
                                 <button>Certificate</button>
                             </a>
                         </div>
